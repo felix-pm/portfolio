@@ -1,0 +1,241 @@
+:root {
+    --bg-color: #0e0e0e;       /* Noir pas totalement noir (plus doux) */
+    --text-white: #ffffff;
+    --text-gray: #9ca3af;      /* Gris pour les sous-titres */
+    --accent-color: #ffbd42;   /* Orange "Soleil" */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Inter', 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Vital pour l'effet de lumière qui dépasse */
+    position: relative;
+}
+
+nav ul {
+    position: fixed;
+    bottom: 30px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    background: rgba(255, 255, 255, 0.037);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    padding: 6px 8px;
+    border-radius: 50px; 
+    z-index: 1000;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    list-style: none; 
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: #a0a0a0; 
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 15px 30px;
+    border-radius: 30px; 
+    transition: all 0.3s ease; 
+    white-space: nowrap; 
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a.active {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+
+/* L'effet de lumière qui s'étale sur TOUTE la page */
+body::before {
+    content: '';
+    position: fixed; /* Reste fixe même si on scrolle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -50%); /* Centré mais décalé un peu vers la droite (vers la photo) */
+    width: 120vw;  /* Plus large que l'écran */
+    height: 120vh; /* Plus haut que l'écran */
+    
+    /* Le dégradé géant : Orange au centre -> Transparent sur les bords */
+    background: radial-gradient(circle, rgba(255, 140, 66, 0.12) 0%, rgba(0,0,0,0) 60%);
+    
+    filter: blur(100px); /* Flou immense pour diffuser la lumière partout */
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* =========================================
+   2. MISE EN PAGE DU CONTENU (HOME)
+========================================= */
+/* =========================================
+   2. MISE EN PAGE DU CONTENU (HOME)
+========================================= */
+main#home {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+    
+    /* CHANGEMENT ICI : On prend tout l'écran */
+    height: 100vh; 
+    
+    display: flex;
+    align-items: center; /* Le texte reste centré verticalement */
+    justify-content: space-between;
+    
+    position: relative; /* Important pour positionner l'image en absolu */
+    overflow: hidden;   /* Coupe ce qui dépasse */
+}
+
+/* =========================================
+   3. COLONNE GAUCHE : TEXTE & GRID
+========================================= */
+.homepage {
+    max-width: 550px;
+    z-index: 10;
+}
+
+/* Titre "Étudiant..." */
+.homepage h1 {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Nom "Félix Parendeau..." */
+.homepage h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 50px 0;
+    color: var(--text-white);
+}
+
+/* --- LA GRILLE DE CONTACT (2x2) --- */
+/* Cible la div contenant vos 4 liens <a> */
+.homepage div {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 25px 40px; /* Espace Vertical 25px, Horizontal 40px */
+    margin-bottom: 50px;
+}
+
+.homepage div a {
+    text-decoration: none;
+    color: var(--text-gray);
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espace entre l'icône et le texte */
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+.homepage div a:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.homepage div a i {
+    color: var(--accent-color); /* Icône orange */
+    font-size: 1.1rem;
+    width: 20px; /* Largeur fixe pour aligner parfaitement */
+    text-align: center;
+}
+
+.homepage div a p {
+    margin: 0;
+}
+
+/* Bouton "Voir mes projets" */
+.btn {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================
+   4. COLONNE DROITE : PHOTO
+========================================= */
+/* =========================================
+   4. COLONNE DROITE : PHOTO
+========================================= */
+.photo-moi {
+    /* Positionnement Absolu pour un contrôle total */
+    position: absolute;
+    bottom: 0;       /* Colle l'image tout en bas */
+    right: 5%;       /* Garde la marge à droite (même que le main) */
+    
+    /* Taille : On la veut très haute */
+    height: 90vh;    /* Prend 90% de la hauteur de l'écran */
+    width: auto;     /* Garde les proportions */
+    
+    object-fit: contain;
+    z-index: 1;      /* Derrière le texte si jamais ils se chevauchent */
+    
+    /* Filtres */
+    filter: brightness(0.95);
+    
+    /* J'ai ajusté le masque : on veut que le bas soit net (pas transparent)
+       pour donner l'impression qu'il est posé sur le bas de l'écran.
+       Le fondu se fait peut-être légèrement sur les côtés si besoin, 
+       mais ici j'ai retiré le masque du bas pour l'effet "toucher le sol". */
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+
+/* =========================================
+   5. MOBILE RESPONSIVE
+========================================= */
+@media (max-width: 900px) {
+    main#home {
+        flex-direction: column-reverse; /* Photo au dessus */
+        justify-content: flex-end;
+        text-align: center;
+        height: auto;
+        padding-top: 20px;
+    }
+
+    .photo-moi {
+        max-height: 40vh; /* Photo plus petite sur mobile */
+        margin-bottom: 20px;
+        align-self: center;
+    }
+
+    .homepage h2 {
+        font-size: 2.5rem; /* Texte plus petit */
+    }
+
+    /* Sur mobile, on peut garder la grille ou passer en colonne unique */
+    .homepage div {
+        grid-template-columns: 1fr; /* Une seule colonne sur petit écran pour lisibilité */
+        justify-items: center;
+        gap: 15px;
+    }
+}
