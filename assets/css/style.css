@@ -1,23 +1,21 @@
 :root {
     --bg-color: #0e0e0e;
     --text-white: #ffffff;
-    --text-gray: #9ca3af;
+    --text-gray: #c3c5c9;
     --accent-color: #ffbd42;
 }
 
 /* 1. LA SOLUTION ANTI-SCROLLBAR */
-html, body {
+html{
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* C'est CETTE ligne qui supprime les scrollbars */
     background-color: var(--bg-color);
     font-family: 'Inter', 'Roboto', sans-serif;
     position: relative;
 }
 
-/* 2. LE BACKGROUND (Spotlight orange) */
 body {
     background-image: radial-gradient(
         circle at 75% 35%, 
@@ -26,6 +24,7 @@ body {
         transparent 60% 
     );
     background-repeat: no-repeat;
+    background-attachment: fixed; /* <--- AJOUTER CETTE LIGNE */
 }
 
 /* 3. L'EFFET LUMIÈRE GÉANT (Body Before) */
@@ -234,16 +233,138 @@ main#home {
 
 /* 7. IMAGE (PHOTO MOI) */
 .photo-moi {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    right: -100px; /* Le décalage vers la droite */
-    
-    height: 110vh; /* J'ai mis 85vh pour que ça rentre bien sans être titanesque */
+    right: -100px; 
+    height: 110vh; 
     width: auto;
     object-fit: contain;
-    
-    /* Filtre léger */
     filter: brightness(0.95);
     z-index: 1;
+}
+
+h2.txt-links {
+    color: var(--accent-color);
+}
+
+
+main#links {
+    margin: 0 auto;
+    padding: 0 5%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* On empile : Titre > Icônes > Liste contact */
+    justify-content: center; /* Centré verticalement */
+    position: relative;
+    z-index: 10; /* Pour passer au-dessus du fond mais sous le menu */
+}
+
+/* 2. Le Titre (Correction du sélecteur incluse) */
+/* On cible directement la classe, car elle est sur le H2 */
+.txt-links {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--accent-color); /* Votre variable orange */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* 3. La liste globale (suppression des puces) */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin-left: 50px;
+    margin-top: -50px;
+    max-width: 600px; /* Limite la largeur pour ne pas toucher la photo */
+}
+
+/* 4. Bloc des icônes réseaux sociaux (Instagram, Github, LinkedIn) */
+/* Cible la DIV 'liens-contact' */
+.liens-contact {
+    display: flex;
+    gap: 70px; /* Espace entre les icônes */
+    margin-bottom: 40px;
+}
+
+/* Les puces <li> autour des icônes */
+.liens-contact li {
+    list-style: none;
+}
+
+/* Style des icônes (FontAwesome) */
+.liens-contact a i {
+    font-size: 2.5rem; /* Taille des gros logos */
+    color: var(--text-gray);
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol des icônes */
+.liens-contact a:hover i {
+    color: var(--text-white);
+    transform: translateY(-5px) scale(1.1); /* Légère remontée et grossissement */
+    text-shadow: 0 0 15px rgba(255, 189, 66, 0.4); /* Lueur orange */
+}
+
+/* 5. Liste des contacts texte (Email & Téléphone) */
+/* On cible les liens qui sont directs dans la liste principale */
+.social-links > li > a {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espace entre icône et texte */
+    text-decoration: none;
+    margin-bottom: 25px;
+    padding: 10px 0;
+    transition: transform 0.2s ease;
+}
+
+.social-links > li > a:hover {
+    transform: translateX(10px); /* Décalage vers la droite au survol */
+}
+
+/* L'icône (enveloppe / téléphone) */
+.social-links > li > a i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    width: 30px; /* Largeur fixe pour aligner parfaitement le texte */
+    text-align: center;
+}
+
+/* Le texte (email / numéro) */
+.social-links > li > a p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-white);
+    font-weight: 300;
+}
+
+
+.txt-call > a {
+    display: flex;
+    text-decoration: none;
+}
+
+
+.txt-call > a > i {
+    font-size: 30px;
+    margin-top: 8px;
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.txt-call > a > p {
+    color: var(--text-gray);
+    margin-right: 35px;
+}
+
+
+.div-hover{
+    transition: all 0.3s ease;
+}
+
+.div-hover:hover{
+    color: var(--text-white);
+    transform: translateY(-5px) scale(1.1);
+    text-shadow: 0 0 15px rgba(255, 189, 66, 0.4);
 }
 
