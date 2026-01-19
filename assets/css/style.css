@@ -26,6 +26,7 @@ html{
     font-family: 'Inter', 'Roboto', sans-serif;
     position: relative;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -126,6 +127,10 @@ header .btn:hover {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
+.nav-text {
+    display: none;
+}
+
 nav ul {
     position: fixed;
     bottom: 20px; 
@@ -151,15 +156,24 @@ nav ul{
 }
 
 nav ul li a {
-    display: block;
-    text-decoration: none;
-    color: #a0a0a0; 
-    font-size: 1.2rem;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
     padding: 5px 0px;
     border-radius: 30px; 
-    transition: all 0.3s ease; 
-    white-space: nowrap;
+}
+
+@media (min-width: 761px) {
+    .nav-text {
+        display: inline-block;
+        font-size: 1rem; 
+    }
+
+    nav ul li a {
+        padding: 8px 15px;
+        color: var(--text-white);
+    }
 }
 
 nav ul li:first-child a {
@@ -178,10 +192,10 @@ nav ul li a.active {
 }
 
 #home {
-    margin-top: -30px;
+    margin-top: 50px;
     margin-bottom: 30px;
-    min-height: 100vh;
-    height: 100vh;
+    min-height: 80vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -587,5 +601,117 @@ nav ul li a.active {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 30px;
+    }
+}
+
+#links {
+    /* Prend toute la place restante, centré verticalement et horizontalement */
+    min-height: 60vh; /* Hauteur mini pour aérer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    margin-left: 10px; /* Si tu as gardé le décalage timeline */
+    max-width: 95%;
+}
+
+.contact-container {
+    max-width: 600px; /* On limite la largeur pour que le texte reste lisible */
+    margin-bottom: 80px; /* Espace avant le footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* LE BADGE "CONTACT" (La pilule blanche) */
+.contact-badge {
+    background-color: var(--text-white);
+    color: black;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 8px 24px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* LE TITRE */
+.contact-title {
+    color: var(--text-white);
+    font-size: 3.5rem; /* Très gros titre */
+    font-weight: 800;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+/* LE TEXTE */
+.contact-text {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* LE LIEN EMAIL */
+.email-link {
+    color: var(--text-white);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Soulignement discret */
+    transition: all 0.3s ease;
+    margin-left: 5px;
+}
+
+.email-link:hover {
+    color: var(--accent-color); /* Devient orange au survol */
+    border-color: var(--accent-color);
+}
+
+/* LES ICÔNES SOCIALES EN LIGNE */
+.social-row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.social-row a {
+    color: var(--text-gray);
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-row a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px); /* Petite animation de saut */
+}
+
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+    padding-bottom: 100px;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+}
+
+/* --- RESPONSIVE TABLETTE & ORDI --- */
+@media (min-width: 600px) {
+    .links-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    }
+}
+
+@media (min-width: 1024px) {
+    .links-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur grand écran */
     }
 }
