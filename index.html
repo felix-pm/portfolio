@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= isset($titre) ? $titre : "Mon Portfolio" ?></title>
-    
+    <title>Portfolio de Félix Parendeau Millerioux</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
     <header>
         <nav>
             <a href="https://www.linkedin.com/in/felix-parendeau/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
@@ -25,16 +23,5 @@
             </ul>
         </nav>
     </header>
-
-    <?php require "templates/partials/home.phtml"; ?>
-    <?php require "templates/partials/experiences.phtml"; ?>
-    <?php require "templates/partials/skills.phtml"; ?>
-    <?php require "templates/partials/projets.phtml"; ?>
-    <?php require "templates/partials/links.phtml"; ?>
-
-    <img src="assets/img/moi.png" alt="Moi" class="photo-moi">
-
-    <script src="assets/js/nav.js"></script>
-
 </body>
 </html>
