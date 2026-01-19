@@ -1,0 +1,28 @@
+name: Deploy to OVH  # Le nom qui s'affichera sur GitHub
+
+on:
+  push:
+    branches:
+      - main  # DÉCLENCHEUR : L'action se lance quand on pousse sur 'main'
+              # Si votre branche s'appelle 'master', remplacez 'main' par 'master'
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest  # Le robot utilise un ordinateur Linux temporaire
+    steps:
+    
+    # ÉTAPE 1 : Le robot récupère votre code le plus récent
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+    
+    # ÉTAPE 2 : Le robot envoie les fichiers via FTP
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}     # Il va chercher le secret créé à l'étape 2
+        username: ${{ secrets.FTP_USERNAME }} # Il va chercher le login
+        password: ${{ secrets.FTP_PASSWORD }} # Il va chercher le mot de passe
+        
+        # POINT CRITIQUE POUR OVH (Voir explication ci-dessous)
+        server-dir: ./www/
