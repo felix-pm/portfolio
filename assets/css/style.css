@@ -33,6 +33,16 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background: transparent;
+}
+
+.global-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -50;
     background-image: radial-gradient(
         circle at 75% 35%, 
         rgba(255, 102, 0, 0.36) 0%, 
@@ -40,8 +50,9 @@ body {
         transparent 60% 
     );
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-size: cover;
 }
+
 
 body::before {
     content: '';
@@ -159,7 +170,7 @@ nav ul li a.active {
 .hero-bg-img {
     position: fixed;
     bottom: 0;
-    right: -420px;
+    right: -400px;
     height: 95vh;
     width: auto;
     pointer-events: none;
@@ -246,10 +257,11 @@ nav ul li a.active {
 /* --- SECTION EXPÉRIENCES --- */
 
 #experiences {
-    margin-left: 10px;
-    padding: 60px 20px;
-    max-width: 95%;
-    overflow: hidden; 
+    margin-left: 0;
+    padding: 60px 20px 60px 20px;
+    max-width: 100%;
+    box-sizing: border-box; 
+    overflow: hidden;
 }
 
 /* Le grand titre Orange "Work Experience" */
@@ -264,10 +276,19 @@ nav ul li a.active {
 /* Conteneur global de la timeline */
 .timeline {
     position: relative;
-    /* C'est ici qu'on crée LE TRAIT VERTICAL (ligne grise) */
-    border-left: 1px solid rgba(255, 255, 255, 0.2); 
-    margin-left: 10px; /* Petit décalage par rapport au bord de l'écran */
-    padding-left: 20px; /* Espace entre le trait et le texte */
+    margin-left: 10px; 
+    padding-left: 20px; 
+}
+
+/* Création de la ligne personnalisée */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 1px; /* Épaisseur du trait */
+    background-color: rgba(255, 255, 255, 0.2); /* Couleur du trait */
+    top: 75px; /* Plus le chiffre est grand, plus le trait commence bas */
+    bottom: 0; /* Le trait va jusqu'en bas */
 }
 
 /* Chaque bloc d'expérience */
@@ -276,17 +297,27 @@ nav ul li a.active {
     margin-bottom: 50px;
 }
 
+.timeline-item h2 {
+    color: var(--text-white);
+    margin-bottom: 15px;
+    font-size: 35px;
+}
+
 /* CRÉATION DU POINT JAUNE (LE DOT) */
 .timeline-item::before {
     content: ''; /* Obligatoire pour afficher un pseudo-élément */
     position: absolute;
     left: -25px; /* On le tire vers la gauche pour le poser sur le trait */
-    top: 5px; /* Ajuste la hauteur pour s'aligner avec le titre */
+    top: 69px; /* Ajuste la hauteur pour s'aligner avec le titre */
     width: 10px;
     height: 10px;
     background-color: var(--accent-color); /* Couleur jaune/orange */
     border-radius: 50%; /* Pour faire un rond parfait */
     box-shadow: 0 0 10px rgba(255, 189, 66, 0.4); /* Petit effet néon */
+}
+
+.timeline-item:nth-child(2)::before {
+    top: 12px; 
 }
 
 /* Header : Titre du poste + Date */
@@ -295,6 +326,23 @@ nav ul li a.active {
     flex-direction: column; /* Sur mobile, on les empile */
     gap: 5px;
     margin-bottom: 5px;
+}
+
+.timeline-header h3 {
+    color: var(--accent-color);
+    font-size: 27px;
+}
+
+.timeline-header span {
+    color: var(--text-white);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.timeline-item p {
+    font-size: 17px;
+    color: var(--text-white);
+    font-weight: 100;
 }
 
 .timeline-header .role {
@@ -355,4 +403,76 @@ nav ul li a.active {
     .section-title {
         font-size: 4rem;
     }
+}
+
+/* --- SECTION SKILLS --- */
+
+#skills {
+    padding: 60px 20px;
+    margin-left: 10px;
+    max-width: 95%;
+}
+
+.skill-category {
+    margin-bottom: 40px;
+}
+
+.category-title {
+    color: var(--text-white);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Petite ligne déco à côté du titre de catégorie */
+.category-title::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux tags de passer à la ligne */
+    gap: 12px; /* Espace entre les tags */
+}
+
+/* Le design des badges (Chips) */
+.skill-tag {
+    background: rgba(255, 255, 255, 0.05); /* Fond très léger */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure subtile */
+    color: var(--text-gray);
+    padding: 10px 20px;
+    border-radius: 50px; /* Bords très ronds */
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espace entre icône et texte */
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag i {
+    font-size: 1.1rem;
+    color: var(--text-white); /* Icône blanche par défaut */
+    transition: color 0.3s ease;
+}
+
+/* Effet au survol : le tag s'illumine en orange */
+.skill-tag:hover {
+    background: rgba(255, 189, 66, 0.1); /* Fond orange très léger */
+    border-color: var(--accent-color);
+    color: var(--text-white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skill-tag:hover i {
+    color: var(--accent-color);
 }
