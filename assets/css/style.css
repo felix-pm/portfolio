@@ -83,6 +83,9 @@ header nav a:hover i {
 }
 
 header .btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
     padding: 8px 20px; 
     font-size: 0.7rem;
     background-color: transparent;
