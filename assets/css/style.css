@@ -167,17 +167,20 @@ nav ul li a.active {
 }
 
 #home {
+    margin-top: -30px;
+    margin-bottom: 30px;
     min-height: 100vh;
+    height: 100vh;
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre le contenu verticalement */
-    padding-left: 10%; /* Marge à gauche pour aérer */
+    justify-content: center; 
+    padding-left: 10%; 
     box-sizing: border-box;
 }
 
 #home h1 {
-    color: var(--accent-color); /* Ta couleur orange/jaune */
+    color: var(--accent-color); 
     font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -186,30 +189,29 @@ nav ul li a.active {
 }
 
 #home h2 {
-    font-size: 2rem; /* Très gros texte */
+    font-size: 2rem;
     color: var(--text-white);
     line-height: 1.1;
     margin-bottom: 40px;
     font-weight: 700;
 }
 
-/* --- LA GRID DES INFOS --- */
 .infos {
     display: grid;
     grid-template-columns: repeat(1, auto); 
     gap: 20px 50px; 
     margin-bottom: 50px;
-    width: max-content; /* La grille ne prend que la place nécessaire */
+    width: max-content; 
 }
 
 .info {
     display: flex;
     align-items: center;
-    gap: 12px; /* Espace entre l'icône et le texte */
+    gap: 12px; 
 }
 
 .info i {
-    color: var(--accent-color); /* Icônes en orange */
+    color: var(--accent-color); 
     font-size: 1.0rem;
 }
 
@@ -238,4 +240,119 @@ nav ul li a.active {
 .more-projets:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+
+/* --- SECTION EXPÉRIENCES --- */
+
+#experiences {
+    margin-left: 10px;
+    padding: 60px 20px;
+    max-width: 95%;
+    overflow: hidden; 
+}
+
+/* Le grand titre Orange "Work Experience" */
+.section-title {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 1.1;
+}
+
+/* Conteneur global de la timeline */
+.timeline {
+    position: relative;
+    /* C'est ici qu'on crée LE TRAIT VERTICAL (ligne grise) */
+    border-left: 1px solid rgba(255, 255, 255, 0.2); 
+    margin-left: 10px; /* Petit décalage par rapport au bord de l'écran */
+    padding-left: 20px; /* Espace entre le trait et le texte */
+}
+
+/* Chaque bloc d'expérience */
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+/* CRÉATION DU POINT JAUNE (LE DOT) */
+.timeline-item::before {
+    content: ''; /* Obligatoire pour afficher un pseudo-élément */
+    position: absolute;
+    left: -25px; /* On le tire vers la gauche pour le poser sur le trait */
+    top: 5px; /* Ajuste la hauteur pour s'aligner avec le titre */
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color); /* Couleur jaune/orange */
+    border-radius: 50%; /* Pour faire un rond parfait */
+    box-shadow: 0 0 10px rgba(255, 189, 66, 0.4); /* Petit effet néon */
+}
+
+/* Header : Titre du poste + Date */
+.timeline-header {
+    display: flex;
+    flex-direction: column; /* Sur mobile, on les empile */
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.timeline-header .role {
+    color: var(--text-white);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.timeline-header .date {
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Nom de l'entreprise */
+.company {
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+}
+
+/* Texte de description */
+.description {
+    color: var(--text-gray);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* Titre "Selected Projects" */
+.sub-title {
+    color: var(--accent-color);
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Zone vide pour la photo du projet (placeholder) */
+.project-preview {
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* --- VERSION TABLETTE ET DESKTOP (Au-dessus de 768px) --- */
+@media (min-width: 768px) {
+    .timeline-header {
+        flex-direction: row; /* On met la date à côté du titre */
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    
+    .section-title {
+        font-size: 4rem;
+    }
 }
