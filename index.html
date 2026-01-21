@@ -13,17 +13,22 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/img/pdp-portfolio.png"
+    />
   </head>
   <body>
     <div class="global-bg"></div>
-    <header>
+    <header id="header">
       <nav>
         <a href="assets/cv-felix.pdf" class="btn" download target="_blank"
           >Télécharger mon CV</a
         >
         <ul>
           <li>
-            <a href="#home"
+            <a href="#header"
               ><i class="fa-regular fa-user"></i
               ><span class="nav-text">Accueil</span></a
             >
@@ -56,31 +61,38 @@
       </nav>
     </header>
     <section id="home">
-      <img src="./assets/img/pdp-portfolio.png" alt="" width="170px" />
-      <h1>ÉTUDIANT DÉVELOPPEUR FULLSTACK</h1>
-      <h2>Félix Parendeau Millerioux</h2>
-      <div class="infos">
-        <div class="info">
-          <i class="fa-regular fa-envelope"></i>
-          <a href="mailto:felix.parendeau@gmail.com"
-            >felix.parendeau@gmail.com</a
-          >
-        </div>
-        <div class="info">
-          <i class="fa-brands fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/felix-parendeau/"
-            >linkedin.com/in/felix-parendeau</a
-          >
-        </div>
-        <div class="info">
-          <i class="fa-solid fa-phone-flip"></i>
-          <a href="tel:0767403267">07 67 40 32 67</a>
-        </div>
-        <div class="info">
-          <i class="fa-solid fa-location-dot"></i>
-          <a href="https://www.google.fr/maps?q=Orl%C3%A9ans,+fr"
-            >Orléans, France</a
-          >
+      <img
+        src="./assets/img/pdp-portfolio.png"
+        alt=""
+        width="170px"
+        height="170px"
+      />
+      <div class="flex">
+        <h1>ÉTUDIANT DÉVELOPPEUR FULLSTACK</h1>
+        <h2>Félix Parendeau Millerioux</h2>
+        <div class="infos">
+          <div class="info">
+            <i class="fa-regular fa-envelope"></i>
+            <a href="mailto:felix.parendeau@gmail.com"
+              >felix.parendeau@gmail.com</a
+            >
+          </div>
+          <div class="info">
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/felix-parendeau/"
+              >linkedin.com/in/felix-parendeau</a
+            >
+          </div>
+          <div class="info">
+            <i class="fa-solid fa-phone-flip"></i>
+            <a href="tel:0767403267">07 67 40 32 67</a>
+          </div>
+          <div class="info">
+            <i class="fa-solid fa-location-dot"></i>
+            <a href="https://www.google.fr/maps?q=Orl%C3%A9ans,+fr"
+              >Orléans, France</a
+            >
+          </div>
         </div>
       </div>
     </section>
@@ -107,6 +119,7 @@
         </p>
       </div>
     </section>
+    <hr class="separator" />
     <section id="experiences">
       <h2 class="section-title">Experiences et formations</h2>
       <div class="timeline">
@@ -117,8 +130,9 @@
             <span>2025 - présent</span>
           </div>
           <p>
-            Coda Orléans : L'école de la Tech pratique, experte en développement
-            web et éco-conception.
+            Coda Orléans : L'école de la Tech pratique Cursus expert en
+            développement web, avec une spécialisation forte en éco-conception
+            et une pédagogie fondée sur la pratique.
           </p>
         </div>
         <div class="timeline-item">
@@ -127,12 +141,15 @@
             <span>2022 - 2025</span>
           </div>
           <p>
-            Lycée Voltaire : Un lycée générale dans laquelle j'avais pris la
-            spécialité NSI (numérique sciences informatique) 15 au bac.
+            Issu d'un parcours général au Lycée Voltaire, j'ai développé une
+            solide appétence pour l'informatique à travers la spécialité NSI.
+            Cet investissement m'a permis d'acquérir des compétences techniques
+            concrètes, récompensées par un 15/20 au Baccalauréat.
           </p>
         </div>
       </div>
     </section>
+    <hr class="separator" />
     <section id="skills">
       <h2 class="section-title">My Skills</h2>
 
@@ -160,6 +177,9 @@
           <span class="skill-tag"><i class="fa-solid fa-c"></i> C</span>
           <span class="skill-tag"><i class="fa-brands fa-php"></i> PHP</span>
           <span class="skill-tag"
+            ><i class="fa-brands fa-python"></i> Python</span
+          >
+          <span class="skill-tag"
             ><i class="fa-solid fa-database"></i> SQL</span
           >
           <span class="skill-tag"
@@ -171,6 +191,7 @@
         </div>
       </div>
     </section>
+    <hr class="separator" />
     <section id="projets">
       <h2 class="section-title">Mes projets</h2>
       <div class="projects-grid">
@@ -213,7 +234,11 @@
               <span class="tech-tag">CSS</span>
               <span class="tech-tag">MySQL</span>
             </div>
-            <a href="#" class="btn-project" target="_blank">
+            <a
+              href="https://felixpm.alwaysdata.net/index.php"
+              class="btn-project"
+              target="_blank"
+            >
               <i class="fa-solid fa-globe"></i> Site web
             </a>
           </div>
@@ -234,7 +259,11 @@
               <span class="tech-tag">CSS</span>
               <span class="tech-tag">MySQL</span>
             </div>
-            <a href="#" class="btn-project" target="_blank">
+            <a
+              href="site-en-hebergement.html"
+              class="btn-project"
+              target="_blank"
+            >
               <i class="fa-solid fa-globe"></i> Site web
             </a>
           </div>

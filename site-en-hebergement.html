@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RideTeam - Coming Soon</title>
+    <title>The League - En cours d'hébergement</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Russo+One&family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
@@ -29,7 +29,7 @@
         position: relative;
       }
 
-      /* --- FOND ANIMÉ (EFFET VITESSE) --- */
+      /* --- FOND ANIMÉ (EFFET VITESSE / E-SPORT) --- */
       .speed-lines {
         position: absolute;
         top: 0;
@@ -37,7 +37,7 @@
         width: 100%;
         height: 100%;
         background:
-          linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)),
+          linear-gradient(rgba(10, 5, 30, 0.9), rgba(10, 5, 30, 0.9)),
           url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
         z-index: -1;
       }
@@ -52,9 +52,9 @@
         background: linear-gradient(
           90deg,
           transparent,
-          rgba(255, 255, 255, 0.1),
+          rgba(100, 50, 255, 0.3),
           transparent
-        );
+        ); /* Violet/Bleu */
         animation: speed 2s infinite linear;
       }
 
@@ -91,11 +91,13 @@
         margin-top: -4rem;
         margin-bottom: 2rem;
         animation: float 6s ease-in-out infinite;
-        filter: drop-shadow(0 0 20px rgba(228, 58, 54, 0.3));
+        filter: drop-shadow(
+          0 0 30px rgba(100, 50, 255, 0.6)
+        ); /* Violet/Bleu glow */
       }
 
       .logo-wrapper img {
-        max-width: 350px;
+        max-width: 400px; /* Un peu plus grand */
         width: 100%;
         height: auto;
       }
@@ -103,63 +105,81 @@
       /* --- TYPOGRAPHIE --- */
       h1 {
         font-family: "Russo One", sans-serif;
-        font-size: 2.5rem;
+        font-size: 2.8rem; /* Un peu plus grand */
         text-transform: uppercase;
         letter-spacing: 2px;
         margin-bottom: 10px;
-        background: linear-gradient(90deg, #fff, #b3b3b3);
+        background: linear-gradient(
+          90deg,
+          #ffffff,
+          #8e2de2
+        ); /* Blanc vers Violet */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 15px rgba(142, 45, 226, 0.5);
       }
 
       .status {
-        color: #e63946; /* Rouge du logo */
+        color: #8e2de2; /* Violet du logo */
         font-weight: 700;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         text-transform: uppercase;
         letter-spacing: 4px;
         margin-bottom: 20px;
         position: relative;
         display: inline-block;
+        text-shadow: 0 0 10px rgba(142, 45, 226, 0.8);
       }
 
       .status::after {
         content: "";
         display: block;
         width: 100%;
-        height: 3px;
-        background: #e63946;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          #4a00e0,
+          #8e2de2
+        ); /* Dégradé Violet/Bleu */
         margin-top: 5px;
-        box-shadow: 0 0 10px #e63946;
+        box-shadow: 0 0 15px #8e2de2;
         animation: loading 2s infinite ease-in-out;
       }
 
       p.subtitle {
-        color: #a0a0a0;
+        color: #cccccc;
         margin-bottom: 40px;
         line-height: 1.6;
+        font-size: 1.1rem;
       }
 
       /* --- BOUTON CTA --- */
       .btn {
         text-decoration: none;
         color: white;
-        padding: 15px 40px;
-        border: 2px solid #e63946;
+        padding: 15px 45px;
+        border: 2px solid #8e2de2;
         font-weight: bold;
         text-transform: uppercase;
         transition: 0.3s;
-        background: rgba(230, 57, 70, 0.1);
-        letter-spacing: 1px;
+        background: rgba(142, 45, 226, 0.15);
+        letter-spacing: 2px;
         position: relative;
         overflow: hidden;
         display: inline-block;
+        cursor: pointer;
+        border-radius: 5px;
       }
 
       .btn:hover {
-        background: #e63946;
-        box-shadow: 0 0 20px rgba(230, 57, 70, 0.6);
+        background: linear-gradient(
+          90deg,
+          #4a00e0,
+          #8e2de2
+        ); /* Dégradé Violet/Bleu */
+        box-shadow: 0 0 25px rgba(142, 45, 226, 0.8);
         transform: translateY(-3px);
+        border-color: transparent;
       }
 
       /* --- ANIMATIONS --- */
@@ -193,10 +213,13 @@
       /* --- RESPONSIVE --- */
       @media (max-width: 768px) {
         h1 {
-          font-size: 1.8rem;
+          font-size: 2rem;
         }
         .logo-wrapper img {
-          max-width: 250px;
+          max-width: 280px;
+        }
+        .status {
+          font-size: 1.1rem;
         }
       }
     </style>
@@ -210,18 +233,20 @@
 
     <div class="container">
       <div class="logo-wrapper">
-        <img src="./assets/img/favicon.png" alt="RideTeam Logo" />
+        <img
+          src="./assets/img/the-league-img-removebg.png"
+          alt="The League Logo"
+        />
       </div>
 
-      <div class="status">Site en développement</div>
-      <h1>Moteurs en chauffe...</h1>
+      <div class="status">Configuration du serveur</div>
+      <h1>Transfert vers les serveurs</h1>
 
       <p class="subtitle">
-        Je prépare la piste pour la meilleure expérience moto entre amis.<br />
-        Le nouveau site <strong>RideTeam</strong> arrive très bientôt.
+        Je finalise l'installation sur les serveurs.<br />
+        La propagation est en cours, <strong>The League</strong> sera accessible
+        dans quelques instants.
       </p>
-
-      <a href="mailto:contact@rideteam.fr" class="btn">Nous Contacter</a>
     </div>
   </body>
 </html>

@@ -84,6 +84,15 @@ body::before {
   pointer-events: none;
 }
 
+.separator {
+  width: 200px;
+  height: 1.5px;
+  background-color: #f4d03f61;
+  border: none;
+  margin: 30px auto;
+  display: block;
+}
+
 header {
   top: 20px;
   right: 3%;
@@ -198,6 +207,9 @@ nav ul li a.active {
 }
 
 #home {
+  padding: 60px 20px;
+  margin-left: 10px;
+  max-width: 95%;
   margin-top: 50px;
   margin-bottom: 30px;
   min-height: 80vh;
@@ -205,7 +217,6 @@ nav ul li a.active {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 10%;
   box-sizing: border-box;
 }
 
@@ -617,7 +628,6 @@ nav ul li a.active {
 .btn-project:hover {
   background-color: var(--accent-color);
   color: white;
-  box-shadow: 0 0 15px rgba(255, 189, 66, 0.4);
 }
 
 @media (min-width: 700px) {
@@ -626,9 +636,13 @@ nav ul li a.active {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
+
+  .separator {
+    width: 250px;
+  }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -637,27 +651,25 @@ nav ul li a.active {
 }
 
 #links {
-  /* Prend toute la place restante, centré verticalement et horizontalement */
-  min-height: 60vh; /* Hauteur mini pour aérer */
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 60px 20px;
-  margin-left: 10px; /* Si tu as gardé le décalage timeline */
+  margin-left: 10px;
   max-width: 95%;
 }
 
 .contact-container {
-  max-width: 600px; /* On limite la largeur pour que le texte reste lisible */
-  margin-bottom: 80px; /* Espace avant le footer */
+  max-width: 600px;
+  margin-bottom: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* LE BADGE "CONTACT" (La pilule blanche) */
 .contact-badge {
   background-color: var(--text-white);
   color: black;
@@ -670,17 +682,15 @@ nav ul li a.active {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
-/* LE TITRE */
 .contact-title {
   color: var(--text-white);
-  font-size: 3.5rem; /* Très gros titre */
+  font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 30px;
   line-height: 1.1;
   letter-spacing: -1px;
 }
 
-/* LE TEXTE */
 .contact-text {
   color: var(--text-gray);
   font-size: 1.1rem;
@@ -688,22 +698,20 @@ nav ul li a.active {
   margin-bottom: 40px;
 }
 
-/* LE LIEN EMAIL */
 .email-link {
   color: var(--text-white);
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Soulignement discret */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
   margin-left: 5px;
 }
 
 .email-link:hover {
-  color: var(--accent-color); /* Devient orange au survol */
+  color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
-/* LES ICÔNES SOCIALES EN LIGNE */
 .social-row {
   display: flex;
   gap: 30px;
@@ -720,10 +728,9 @@ nav ul li a.active {
 
 .social-row a:hover {
   color: var(--accent-color);
-  transform: translateY(-5px); /* Petite animation de saut */
+  transform: translateY(-5px);
 }
 
-/* --- FOOTER --- */
 footer {
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -736,15 +743,171 @@ footer p {
   font-size: 0.8rem;
 }
 
-/* --- RESPONSIVE TABLETTE & ORDI --- */
 @media (min-width: 600px) {
   .links-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
   .links-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 colonnes sur grand écran */
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .separator {
+    width: 400px;
+  }
+}
+
+@media (min-width: 761px) {
+  #home,
+  #a-propos,
+  #experiences,
+  #skills,
+  #projets,
+  #links {
+    max-width: 900px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  #home {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  #home img {
+    width: 300px;
+    height: 300px;
+    margin-left: 200px;
+  }
+}
+
+@media (min-width: 1500px) {
+  #home,
+  #a-propos,
+  #experiences,
+  #skills,
+  #projets,
+  #links {
+    max-width: 1300px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  #home {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  #home h1 {
+    font-size: 1.5rem;
+  }
+
+  #home h2 {
+    font-size: 3.8rem;
+  }
+
+  .separator {
+    width: 600px;
+    height: 1.5px;
+    background-color: #f4d03f61;
+    border: none;
+    margin: 30px auto;
+    display: block;
+  }
+
+  .info i {
+    font-size: 1.4rem;
+  }
+
+  .info a {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  .propos p {
+    font-size: 22px;
+    color: var(--text-gray);
+    font-weight: 300;
+  }
+
+  .timeline-item h2 {
+    font-size: 40px;
+  }
+
+  .timeline-header h3 {
+    font-size: 32px;
+  }
+
+  .timeline-item p {
+    font-size: 20px;
+  }
+
+  .timeline-header span {
+    font-size: 18px;
+    margin-top: 15px;
+  }
+
+  .timeline::before {
+    top: 85px;
+  }
+
+  .timeline-item::before {
+    top: 80px;
+  }
+
+  .timeline-item:nth-child(2)::before {
+    top: 16px;
+  }
+
+  .category-title {
+    font-size: 1.5rem;
+    gap: 15px;
+  }
+
+  .category-title::before {
+    width: 30px;
+    height: 4px;
+  }
+
+  .skill-list {
+    gap: 16px;
+  }
+
+  .skill-tag {
+    padding: 12px 23px;
+    font-size: 1.1rem;
+    gap: 10px;
+  }
+
+  .contact-container {
+    max-width: 800px;
+  }
+
+  .contact-badge {
+    font-size: 1.4rem;
+  }
+
+  .contact-title {
+    font-size: 4.5rem;
+  }
+
+  .contact-text {
+    font-size: 1.2rem;
+  }
+
+  footer p {
+    font-size: 1rem;
   }
 }
