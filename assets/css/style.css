@@ -286,6 +286,18 @@ nav ul li a.active {
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 
+#a-propos {
+  padding: 60px 20px;
+  margin-left: 10px;
+  max-width: 95%;
+}
+
+.propos p {
+  font-size: 18px;
+  color: var(--text-gray);
+  font-weight: 300;
+}
+
 #experiences {
   margin-left: 0;
   padding: 60px 20px 60px 20px;
@@ -358,14 +370,14 @@ nav ul li a.active {
 }
 
 .timeline-header span {
-  color: var(--text-white);
+  color: var(--text-gray);
   font-size: 12px;
   margin-bottom: 10px;
 }
 
 .timeline-item p {
   font-size: 17px;
-  color: var(--text-white);
+  color: var(--text-gray);
   font-weight: 100;
 }
 
