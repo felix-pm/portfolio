@@ -151,16 +151,15 @@ nav ul {
   margin: 0;
 }
 
-nav ul {
+/* nav ul {
   gap: 30px;
-}
+} */
 
 nav ul li a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 5px 0px;
+  padding: 5px 15px;
   border-radius: 30px;
 }
 
@@ -174,15 +173,22 @@ nav ul li a {
     padding: 8px 15px;
     color: var(--text-white);
   }
-}
 
+  nav ul li i {
+    margin-right: 10px;
+  }
+  nav ul {
+    gap: 20px;
+  }
+}
+/* 
 nav ul li:first-child a {
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
 nav ul li:last-child a {
-  padding-right: 20px;
-}
+  margin-right: 20px;
+} */
 
 nav ul li a.active {
   background-color: #ffffff;
@@ -237,6 +243,7 @@ nav ul li a.active {
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: all 0.3s ease;
 }
 
 .info i {
@@ -250,8 +257,14 @@ nav ul li a.active {
   transition: 0.3s ease;
 }
 
-.info a:hover {
+.info:hover {
   color: var(--text-white);
+  transform: translateY(-2px);
+}
+
+.info:hover a {
+  color: var(--text-white);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .more-projets {
