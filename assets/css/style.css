@@ -32,6 +32,11 @@ body {
   margin: 0;
   padding: 0;
   background: transparent;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .global-bg {
@@ -130,9 +135,28 @@ header .btn {
   z-index: 1;
 }
 
-header .btn:hover {
+header .nuit {
+  position: fixed;
+  top: 20px;
+  right: 170px;
+  padding: 8px 10px;
+  font-size: 0.7rem;
   background-color: var(--text-white);
-  color: black;
+  border: 1px solid rgba(11, 11, 11, 0.3);
+  border-radius: 20px;
+  color: var(--bg-color);
+  z-index: 1;
+}
+
+header .nuit:hover {
+  background-color: transparent;
+  color: var(--text-white);
+  border: 1px solid var(--text-white);
+}
+
+:first-child header .btn:hover {
+  background-color: var(--text-white);
+  color: var(--bg-color);
   border-color: var(--text-white);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
 }
@@ -306,7 +330,7 @@ nav ul li a.active {
 .propos p {
   font-size: 18px;
   color: var(--text-gray);
-  font-weight: 300;
+  font-weight: 100;
 }
 
 #experiences {
